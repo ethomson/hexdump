@@ -160,7 +160,7 @@ namespace HexDump
                     literal = true;
                     continue;
                 }
-                else if (!literal && arg.StartsWith("-"))
+                else if (!literal && (arg.StartsWith("-") || arg.StartsWith("/")))
                 {
                     String opts = arg;
 
