@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace HexDump
 {
@@ -100,20 +99,18 @@ namespace HexDump
             {
                 line.Append(ChunkSeparator);
 
-                ushort value;
+                int value;
 
                 if (SwapByteOrder)
                 {
-                    value = (ushort)(buf[i] |
-                        ((i + 1 < count) ? (buf[i + 1] << 8) : 0));
+                    value = (buf[i] | ((i + 1 < count) ? (buf[i + 1] << 8) : 0));
                 }
                 else
                 {
-                    value = (ushort)((buf[i] << 8) |
-                        ((i + 1 < count) ? buf[i + 1] : 0));
+                    value = ((buf[i] << 8) | ((i + 1 < count) ? (int)buf[i + 1] : 0));
                 }
 
-                line.Append(FormatShort(value));
+                line.Append(FormatShort((ushort)value));
             }
 
             return line.ToString();
