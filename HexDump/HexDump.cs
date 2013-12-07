@@ -51,6 +51,18 @@ namespace HexDump
 
         public static void Main(string[] args)
         {
+            try
+            {
+                Run(args);
+            }
+            catch(Exception e)
+            {
+                Console.Error.WriteLine("{0}: {1}", ProgramName, e.Message);
+            }
+        }
+
+        private static void Run(string[] args)
+        {
             long read = 0, loc = 0;
 
             Options opts = ParseOptions(args);
