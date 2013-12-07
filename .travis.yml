@@ -1,0 +1,14 @@
+language: c
+
+install:
+ - sudo apt-get install cmake mono-devel mono-gmcs
+
+script:
+ - xbuild HexDump.msbuild /t:Build
+
+notifications:
+ recipients:
+   - ethomson@edwardthomson.com
+ email:
+   on_success: change
+   on_failure: always
