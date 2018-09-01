@@ -1,0 +1,38 @@
+resources:
+- repo: self
+
+pool:
+  vmImage: 'Hosted VS2017'
+
+trigger:
+- master
+
+steps:
+- task: nugettoolinstaller@0
+  displayName: 'Use NuGet 4.4.1'
+  inputs:
+    versionSpec: 4.4.1
+
+- task: nugetcommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: 'HexDump.sln'
+
+- task: vsbuild@1
+  displayName: 'Build'
+  inputs:
+    solution: 'HexDump.sln'
+    platform: 'Any CPU'
+    configuration: 'Debug'
+
+- task: copyfiles@2
+  displayName: 'Copy Files to Staging Directory'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: '**\bin\Debug\**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
+- task: publishbuildartifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
