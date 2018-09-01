@@ -1,7 +1,7 @@
 HexDump: simple hexdump utility for win32
 =========================================
 
-[![Build Status](https://api.travis-ci.org/ethomson/hexdump.png?branch=master)](http://travis-ci.org/ethomson/hexdump)
+[![Build Status](https://ethomson.visualstudio.com/HexDump/_apis/build/status/HexDump%20CI)](https://ethomson.visualstudio.com/HexDump/_build/latest?definitionId=19)
 
 HexDump is a simple hexdump utility for win32 with outputs similar to the
 classic BSD hexdump.
