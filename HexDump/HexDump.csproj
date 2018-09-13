@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConcatenatedFileStream.cs" />
+    <Compile Include="ConcatenatedStream.cs" />
     <Compile Include="ForwardSeekingStream.cs" />
     <Compile Include="Output.cs" />
     <Compile Include="HexDump.cs" />
